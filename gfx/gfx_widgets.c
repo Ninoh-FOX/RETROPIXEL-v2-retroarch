@@ -933,7 +933,7 @@ void gfx_widgets_iterate(
             settings, width, height, fullscreen, true);
 	
    if (p_disp->menu_driver_id == MENU_DRIVER_ID_OZONE) {
-         scale_factor = scale_factor * 1.500f;
+         scale_factor = scale_factor * 1.300f;
    }
 
 

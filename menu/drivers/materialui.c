@@ -3831,7 +3831,7 @@ static void materialui_render(void *data,
    /* Check whether screen dimensions, menu scale
     * factor or layout optimisation settings have changed */
    scale_factor = gfx_display_get_dpi_scale(p_disp, settings,
-         width, height, false, false) * 2.000f;
+         width, height, false, false) * 1.500f;
 
    if (   (scale_factor != mui->last_scale_factor)
        || (width != mui->last_width)
@@ -9027,7 +9027,7 @@ static void *materialui_init(void **userdata, bool video_is_threaded)
    mui->last_height                       = height;
    mui->last_scale_factor                 = gfx_display_get_dpi_scale(
          p_disp, settings, width, height,
-         false, false) * 2.000f;
+         false, false) * 1.500f;
    mui->dip_base_unit_size                = mui->last_scale_factor
       * MUI_DIP_BASE_UNIT_SIZE;
    mui->flags                             = 0;

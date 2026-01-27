@@ -15320,20 +15320,20 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
 #endif
 
 #ifdef HAVE_UPDATE_ASSETS
-               if (menu_entries_append(info->list,
-                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_ASSETS),
-                        msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_ASSETS),
-                        MENU_ENUM_LABEL_UPDATE_ASSETS,
-                        MENU_SETTING_ACTION, 0, 0, NULL))
-                  count++;
+               //if (menu_entries_append(info->list,
+               //         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_ASSETS),
+               //         msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_ASSETS),
+               //         MENU_ENUM_LABEL_UPDATE_ASSETS,
+               //         MENU_SETTING_ACTION, 0, 0, NULL))
+               //   count++;
 #endif
 #if !defined(_3DS)
-               if (menu_entries_append(info->list,
-                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_AUTOCONFIG_PROFILES),
-                        msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_AUTOCONFIG_PROFILES),
-                        MENU_ENUM_LABEL_UPDATE_AUTOCONFIG_PROFILES,
-                        MENU_SETTING_ACTION, 0, 0, NULL))
-                  count++;
+               //if (menu_entries_append(info->list,
+               //         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_AUTOCONFIG_PROFILES),
+               //         msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_AUTOCONFIG_PROFILES),
+               //         MENU_ENUM_LABEL_UPDATE_AUTOCONFIG_PROFILES,
+               //         MENU_SETTING_ACTION, 0, 0, NULL))
+               //   count++;
 
                if (menu_entries_append(info->list,
                         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_CHEATS),
@@ -15353,43 +15353,43 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
 #endif
 #endif /* HAVE_LIBRETRODB */
 #if !defined(_3DS)
-               if (menu_entries_append(info->list,
-                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_OVERLAYS),
-                        msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_OVERLAYS),
-                        MENU_ENUM_LABEL_UPDATE_OVERLAYS,
-                        MENU_SETTING_ACTION, 0, 0, NULL))
-                  count++;
+               //if (menu_entries_append(info->list,
+               //         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_OVERLAYS),
+               //         msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_OVERLAYS),
+               //         MENU_ENUM_LABEL_UPDATE_OVERLAYS,
+               //         MENU_SETTING_ACTION, 0, 0, NULL))
+               //   count++;
 
 #if defined(HAVE_CG) || defined(HAVE_GLSL) || defined(HAVE_SLANG) || defined(HAVE_HLSL)
-               if (BIT32_GET(flags.flags, GFX_CTX_FLAGS_SHADERS_CG))
-               {
-                  if (menu_entries_append(info->list,
-                           msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_CG_SHADERS),
-                           msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_CG_SHADERS),
-                           MENU_ENUM_LABEL_UPDATE_CG_SHADERS,
-                           MENU_SETTING_ACTION, 0, 0, NULL))
-                     count++;
-               }
+               //if (BIT32_GET(flags.flags, GFX_CTX_FLAGS_SHADERS_CG))
+               //{
+               //   if (menu_entries_append(info->list,
+               //            msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_CG_SHADERS),
+               //            msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_CG_SHADERS),
+               //            MENU_ENUM_LABEL_UPDATE_CG_SHADERS,
+               //            MENU_SETTING_ACTION, 0, 0, NULL))
+               //      count++;
+               //}
 
-               if (BIT32_GET(flags.flags, GFX_CTX_FLAGS_SHADERS_GLSL))
-               {
-                  if (menu_entries_append(info->list,
-                           msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_GLSL_SHADERS),
-                           msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_GLSL_SHADERS),
-                           MENU_ENUM_LABEL_UPDATE_GLSL_SHADERS,
-                           MENU_SETTING_ACTION, 0, 0, NULL))
-                     count++;
-               }
+               //if (BIT32_GET(flags.flags, GFX_CTX_FLAGS_SHADERS_GLSL))
+               //{
+               //   if (menu_entries_append(info->list,
+               //            msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_GLSL_SHADERS),
+               //            msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_GLSL_SHADERS),
+               //            MENU_ENUM_LABEL_UPDATE_GLSL_SHADERS,
+               //            MENU_SETTING_ACTION, 0, 0, NULL))
+               //      count++;
+               //}
 
-               if (BIT32_GET(flags.flags, GFX_CTX_FLAGS_SHADERS_SLANG))
-               {
-                  if (menu_entries_append(info->list,
-                           msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_SLANG_SHADERS),
-                           msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_SLANG_SHADERS),
-                           MENU_ENUM_LABEL_UPDATE_SLANG_SHADERS,
-                           MENU_SETTING_ACTION, 0, 0, NULL))
-                     count++;
-               }
+               //if (BIT32_GET(flags.flags, GFX_CTX_FLAGS_SHADERS_SLANG))
+               //{
+               //   if (menu_entries_append(info->list,
+               //            msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_SLANG_SHADERS),
+               //            msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_SLANG_SHADERS),
+               //            MENU_ENUM_LABEL_UPDATE_SLANG_SHADERS,
+               //            MENU_SETTING_ACTION, 0, 0, NULL))
+               //      count++;
+               //}
 #endif
 #endif /* !defined(_3DS) */
 #endif /* HAVE_COMPRESSION */
@@ -15728,7 +15728,7 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                      count++;
 #endif
 
-#if defined(HAVE_LAKKA)
+#ifndef HAVE_LAKKA
                if (settings->bools.menu_show_reboot)
                   if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(info->list,
                            MENU_ENUM_LABEL_REBOOT,
