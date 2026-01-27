@@ -931,6 +931,11 @@ void gfx_widgets_iterate(
       scale_factor                  = gfx_display_get_dpi_scale(
             p_disp,
             settings, width, height, fullscreen, true);
+	
+   if (p_disp->menu_driver_id == MENU_DRIVER_ID_OZONE) {
+         scale_factor = scale_factor * 1.500f;
+   }
+
 
    /* Check whether screen dimensions or menu scale
     * factor have changed */

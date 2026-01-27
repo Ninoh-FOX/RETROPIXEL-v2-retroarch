@@ -13953,20 +13953,20 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
          case DISPLAYLIST_LAKKA:
             menu_entries_clear(info->list);
 #ifdef HAVE_NETWORKING
-            count = (unsigned)print_buf_lines(info->list, "", menu->core_buf,
-                  menu->core_len, FILE_TYPE_DOWNLOAD_LAKKA,
-                  true);
+            //count = (unsigned)print_buf_lines(info->list, "", menu->core_buf,
+            //      menu->core_len, FILE_TYPE_DOWNLOAD_LAKKA,
+            //      true);
 
-            if (count == 0)
-               menu_entries_append(info->list,
-                     msg_hash_to_str(MENU_ENUM_LABEL_VALUE_NO_ENTRIES_TO_DISPLAY),
-                     msg_hash_to_str(MENU_ENUM_LABEL_NO_ENTRIES_TO_DISPLAY),
-                     MENU_ENUM_LABEL_NO_ENTRIES_TO_DISPLAY,
-                     FILE_TYPE_NONE, 0, 0, NULL);
+            //if (count == 0)
+            //   menu_entries_append(info->list,
+            //         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_NO_ENTRIES_TO_DISPLAY),
+            //         msg_hash_to_str(MENU_ENUM_LABEL_NO_ENTRIES_TO_DISPLAY),
+            //         MENU_ENUM_LABEL_NO_ENTRIES_TO_DISPLAY,
+            //         FILE_TYPE_NONE, 0, 0, NULL);
 
-            info->flags       |= MD_FLAG_NEED_REFRESH
-                               | MD_FLAG_NEED_PUSH
-                               | MD_FLAG_NEED_CLEAR;
+            //info->flags       |= MD_FLAG_NEED_REFRESH
+            //                   | MD_FLAG_NEED_PUSH
+            //                   | MD_FLAG_NEED_CLEAR;
 #endif
             break;
          case DISPLAYLIST_PLAYLIST_COLLECTION:
@@ -15203,7 +15203,7 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                flags.flags     = 0;
                video_context_driver_get_flags(&flags);
 #endif
-#ifdef HAVE_LAKKA
+#ifndef HAVE_LAKKA
                if (menu_entries_append(info->list,
                         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_LAKKA),
                         msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_LAKKA),
@@ -15270,40 +15270,40 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
 #endif /* HAVE_UPDATE_CORES */
 
 #if defined(HAVE_COMPRESSION) && !defined(HAVE_MIST)
-               if (menu_entries_append(info->list,
-                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_SYSTEM_FILES),
-                        msg_hash_to_str(MENU_ENUM_LABEL_DOWNLOAD_CORE_SYSTEM_FILES),
-                        MENU_ENUM_LABEL_DOWNLOAD_CORE_SYSTEM_FILES,
-                        MENU_SETTING_ACTION, 0, 0, NULL))
-                  count++;
+               //if (menu_entries_append(info->list,
+               //         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_SYSTEM_FILES),
+               //         msg_hash_to_str(MENU_ENUM_LABEL_DOWNLOAD_CORE_SYSTEM_FILES),
+               //         MENU_ENUM_LABEL_DOWNLOAD_CORE_SYSTEM_FILES,
+               //         MENU_SETTING_ACTION, 0, 0, NULL))
+               //   count++;
 #endif
 
-               if (menu_entries_append(info->list,
-                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_CONTENT),
-                        msg_hash_to_str(MENU_ENUM_LABEL_DOWNLOAD_CORE_CONTENT_DIRS),
-                        MENU_ENUM_LABEL_DOWNLOAD_CORE_CONTENT_DIRS,
-                        MENU_SETTING_ACTION, 0, 0, NULL))
-                  count++;
+               //if (menu_entries_append(info->list,
+               //         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_CONTENT),
+               //         msg_hash_to_str(MENU_ENUM_LABEL_DOWNLOAD_CORE_CONTENT_DIRS),
+               //         MENU_ENUM_LABEL_DOWNLOAD_CORE_CONTENT_DIRS,
+               //         MENU_SETTING_ACTION, 0, 0, NULL))
+               //   count++;
 
 #ifdef HAVE_ONLINE_UPDATER
-               if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(info->list,
-                     MENU_ENUM_LABEL_UPDATER_SETTINGS,
-                     PARSE_ACTION, false) == 0)
-                  count++;
+               //if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(info->list,
+               //      MENU_ENUM_LABEL_UPDATER_SETTINGS,
+               //      PARSE_ACTION, false) == 0)
+               //   count++;
 #endif
 
-               if (menu_entries_append(info->list,
-                        msg_hash_to_str(MENU_ENUM_LABEL_VALUE_PL_THUMBNAILS_UPDATER_LIST),
-                        msg_hash_to_str(MENU_ENUM_LABEL_PL_THUMBNAILS_UPDATER_LIST),
-                        MENU_ENUM_LABEL_PL_THUMBNAILS_UPDATER_LIST,
-                        MENU_SETTING_ACTION, 0, 0, NULL))
-                  count++;
+               //if (menu_entries_append(info->list,
+               //         msg_hash_to_str(MENU_ENUM_LABEL_VALUE_PL_THUMBNAILS_UPDATER_LIST),
+               //         msg_hash_to_str(MENU_ENUM_LABEL_PL_THUMBNAILS_UPDATER_LIST),
+               //         MENU_ENUM_LABEL_PL_THUMBNAILS_UPDATER_LIST,
+               //         MENU_SETTING_ACTION, 0, 0, NULL))
+               //   count++;
 
 #ifdef HAVE_NETWORKING
-               if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(info->list,
-                        MENU_ENUM_LABEL_NETWORK_ON_DEMAND_THUMBNAILS,
-                        PARSE_ONLY_BOOL, false) != -1)
-                  count++;
+               //if (MENU_DISPLAYLIST_PARSE_SETTINGS_ENUM(info->list,
+               //         MENU_ENUM_LABEL_NETWORK_ON_DEMAND_THUMBNAILS,
+               //         PARSE_ONLY_BOOL, false) != -1)
+               //   count++;
 #endif
 
 #ifdef HAVE_COMPRESSION
