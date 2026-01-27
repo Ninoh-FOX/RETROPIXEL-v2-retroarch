@@ -3748,7 +3748,7 @@ bool command_event(enum event_command cmd, void *data)
           * cleanup actions (like writing autosave state) twice. */
          if (should_quit_on_close())
          {
-            command_event(CMD_EVENT_QUIT, NULL);
+            //command_event(CMD_EVENT_QUIT, NULL);
             break;
          }
          /* Closing content via hotkey requires toggling menu
