@@ -330,7 +330,7 @@ make HAVE_LIBRETRODB=1 HAVE_NETWORKING=1 HAVE_LAKKA=1 HAVE_ZARCH=1 HAVE_QT=0 HAV
 
 ## Toolchain
 
-- [toolchain]([https://www.retroarch.com/](https://github.com/Ninoh-FOX/RETROPIXEL-v2-toolchain))
+- [toolchain]([https://www.retroarch.com/](https://github.com/Ninoh-FOX/RETROPIXEL-v2-toolchain)
 
 ## Socials
 
