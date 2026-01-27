@@ -324,6 +324,14 @@ Some arcade resolutions can be very different from consumer CRTs. There is resol
 
 MAME ROMs that run in a vertical aspect like DoDonPachi need to be rotated within MAME before resolution switching and aspect correction will work. Do this before enabling CRT SwitchRes so that RetroArch will run in your desktop resolution. Once you have rotated any games that may need it turn CRT SwitchRes on.
 
+## Compilation for RetroPixel pocket v2
+
+make HAVE_LIBRETRODB=1 HAVE_NETWORKING=1 HAVE_LAKKA=1 HAVE_ZARCH=1 HAVE_QT=0 HAVE_LANGEXTRA=1 HAVE_LAKKA_PROJECT=0 HAVE_LAKKA_SERVER=0
+
+## Toolchain
+
+- [toolchain]([https://www.retroarch.com/](https://github.com/Ninoh-FOX/RETROPIXEL-v2-toolchain))
+
 ## Socials
 
 The links below belong to our official channels. Links other than this may have been created by fans, independent members or followers. We seriously recommend using our original resources.
