@@ -2361,7 +2361,7 @@ static struct string_list *string_list_new_special(
                      if (zone_desc[--_len] == '\n')
                         zone_desc[_len] = '\0';
 
-                  if (zone_desc && zone_desc[0] != '\0')
+                  if (zone_desc[0] != '\0')
                   {
                      const char *opt  = zone_desc;
                      *len            += strlen(opt) + 1;

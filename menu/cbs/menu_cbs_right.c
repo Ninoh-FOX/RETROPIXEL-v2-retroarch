@@ -1021,7 +1021,7 @@ static int cpu_policy_freq_managed_gov(unsigned type, const char *label,
       case 0:
          pidx = string_list_find_elem(drivers[0]->available_governors,
                opts.main_policy);
-         if (pidx && pidx + 1 < drivers[0]->available_governors->size)
+         if (pidx && pidx + 1 < (int)drivers[0]->available_governors->size)
          {
             strlcpy(opts.main_policy,
                   drivers[0]->available_governors->elems[pidx].data,
@@ -1032,7 +1032,7 @@ static int cpu_policy_freq_managed_gov(unsigned type, const char *label,
       case 1:
          pidx = string_list_find_elem(drivers[0]->available_governors,
                opts.menu_policy);
-         if (pidx && pidx + 1 < drivers[0]->available_governors->size)
+         if (pidx && pidx + 1 < (int)drivers[0]->available_governors->size)
          {
             strlcpy(opts.menu_policy,
                   drivers[0]->available_governors->elems[pidx].data,
@@ -1070,7 +1070,7 @@ static int cpu_policy_freq_tweak(unsigned type, const char *label,
             {
                int pidx = string_list_find_elem(drivers[policyid]->available_governors,
                      drivers[policyid]->scaling_governor);
-               if (pidx && pidx + 1 < drivers[policyid]->available_governors->size)
+               if (pidx && pidx + 1 < (int)drivers[policyid]->available_governors->size)
                {
                   set_cpu_scaling_governor(drivers[policyid],
                         drivers[policyid]->available_governors->elems[pidx].data);

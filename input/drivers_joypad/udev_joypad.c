@@ -652,7 +652,7 @@ static void *udev_joypad_init(void *data)
    qsort(sorted, sorted_count,
          sizeof(struct joypad_udev_entry), sort_devnodes);
 
-   for (i = 0; i < sorted_count; i++)
+   for (i = 0; i < (int)sorted_count; i++)
    {
       const char         *name = udev_list_entry_get_name(sorted[i].item);
       struct udev_device  *dev = udev_device_new_from_syspath(udev_joypad_fd, name);

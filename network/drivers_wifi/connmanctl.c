@@ -103,7 +103,7 @@ static void connmanctl_refresh_services(connman_t *connman)
       if (list->size == 0)
          continue;
 
-      for (i = 0; i < list->size-1; i++)
+      for (i = 0; i < (int)(list->size - 1); i++)
       {
          strlcat(entry.ssid, list->elems[i].data, sizeof(entry.ssid));
          strlcat(entry.ssid, " ", sizeof(entry.ssid)-1);
@@ -172,7 +172,7 @@ static bool connmanctl_tether_status(connman_t *connman)
 
    pclose(command_file);
 
-   if (!ln || ln[0] == '0')
+   if (ln[0] == '0')
       return false;
    if (ln[0] == '1')
       return true;
@@ -695,7 +695,7 @@ static void connmanctl_tether_start_stop(void *data, bool start, char* configfil
          pclose(command_file);
       }
 
-      if (!ap_name || !pass_key)
+      if (ap_name[0] == '\0' || pass_key[0] == '\0')
       {
          size_t _len;
          RARCH_ERR("[CONNMANCTL] Tether start stop: APNAME or PASSWORD missing\n");

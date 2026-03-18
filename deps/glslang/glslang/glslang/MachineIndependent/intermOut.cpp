@@ -1130,7 +1130,9 @@ static void OutputDouble(TInfoSink& out, double value, TOutputTraverser::EExtraO
         case TOutputTraverser::BinaryDoubleOutput:
         {
             out.debug << " : ";
-            long long b = *reinterpret_cast<long long*>(&value);
+            union { double d; long long l; } pun;
+            pun.d = value;
+            long long b = pun.l;
             for (size_t i = 0; i < 8 * sizeof(value); ++i, ++b) {
                 out.debug << ((b & 0x8000000000000000) != 0 ? "1" : "0");
                 b <<= 1;

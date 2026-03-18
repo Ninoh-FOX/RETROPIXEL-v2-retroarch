@@ -104,7 +104,7 @@ cpu_scaling_driver_t **get_cpu_scaling_drivers(bool can_update)
 
       scaling_drivers = (cpu_scaling_driver_t**)calloc(
          (policy_dir->size + 1), sizeof(cpu_scaling_driver_t*));
-      for (i = 0, pc = 0; i < policy_dir->size; i++)
+      for (i = 0, pc = 0; i < (int)policy_dir->size; i++)
       {
          uint32_t polid;
          cpu_scaling_driver_t *drv;
@@ -170,7 +170,7 @@ cpu_scaling_driver_t **get_cpu_scaling_drivers(bool can_update)
          if (tmplst)
          {
             drv->available_freqs = calloc(tmplst->size, sizeof(uint32_t));
-            for (j = 0; j < tmplst->size; j++)
+            for (j = 0; j < (int)tmplst->size; j++)
             {
                uint32_t freq = (uint32_t)atol(tmplst->elems[j].data);
                drv->available_freqs[j] = freq;

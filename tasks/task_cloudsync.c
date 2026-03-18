@@ -1135,7 +1135,13 @@ static RFILE *task_cloud_sync_write_updated_manifest(file_list_t *manifest, char
 {
    rjsonwriter_t *writer = NULL;
    size_t         idx    = 0;
-   RFILE *file           = filestream_open(path,
+   RFILE *file           = NULL;
+   char dir[DIR_MAX_LENGTH];
+
+   fill_pathname_basedir(dir, path, sizeof(dir));
+   path_mkdir(dir);
+
+   file = filestream_open(path,
          RETRO_VFS_FILE_ACCESS_READ_WRITE, RETRO_VFS_FILE_ACCESS_HINT_NONE);
    if (!file)
       return NULL;
@@ -1201,8 +1207,18 @@ static void task_cloud_sync_update_manifests(task_cloud_sync_state_t *sync_state
       RARCH_LOG(CSPFX "Uploading updated manifest to server...\n");
       task_cloud_sync_manifest_filename(manifest_path, sizeof(manifest_path), true);
       file = task_cloud_sync_write_updated_manifest(sync_state->updated_server_manifest, manifest_path);
+
+      if (!file)
+      {
+         RARCH_ERR(CSPFX "Failed to write server manifest.\n");
+         sync_state->failures = true;
+         sync_state->phase = CLOUD_SYNC_PHASE_END;
+         return;
+      }
+
       filestream_seek(file, 0, SEEK_SET);
       sync_state->waiting = 1;
+	  
       if (!cloud_sync_update(MANIFEST_FILENAME_SERVER, file, task_cloud_sync_update_manifest_cb, sync_state))
       {
          RARCH_ERR(CSPFX "Uploading updated manifest failed.\n");

@@ -43,6 +43,7 @@
 #include "../../verbosity.h"
 #include "../../frontend/frontend_driver.h"
 #include "../common/drm_common.h"
+#include "../common/gl_common.h"
 
 #include <go2/display.h>
 #include <drm/drm_fourcc.h>
@@ -257,7 +258,9 @@ static bool gfx_ctx_go2_drm_set_video_mode(void *data,
 
    go2_context_make_current(drm->context);
 
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES)
    gl_clear();
+#endif
 
    return true;
 }
@@ -333,7 +336,7 @@ static void gfx_ctx_go2_drm_swap_buffers(void *data)
    if (out_w != src_w || out_h != src_h)
    {
        out_w = out_h * video_driver_get_aspect_ratio();
-       out_w = (out_w > drm->native_width) ? drm->native_width : out_w;
+       out_w = (out_w > (int)drm->native_width) ? (int)drm->native_width : out_w;
        out_x = (drm->native_width - out_w) / 2;
        if (out_x < 0)
            out_x = 0;

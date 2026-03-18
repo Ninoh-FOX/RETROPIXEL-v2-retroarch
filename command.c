@@ -424,11 +424,13 @@ command_t* command_emscripten_new(void)
 bool command_pause_resume(command_t *cmd, const char* arg)
 {
    command_event(CMD_EVENT_UNPAUSE, NULL);
+   return true;
 }
 
 bool command_pause(command_t *cmd, const char* arg)
 {
    command_event(CMD_EVENT_PAUSE, NULL);
+   return true;
 }
 
 bool command_get_config_param(command_t *cmd, const char* arg)

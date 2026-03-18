@@ -459,7 +459,7 @@ static bool render_msg(oga_video_t* vid, const char* msg)
 
    while (*c)
    {
-      int x, y;
+      unsigned int x, y;
       uint32_t* dest             = NULL;
       const uint8_t *source      = NULL;
       const struct font_glyph* g = vid->font_driver->get_glyph(vid->font, *c);
@@ -483,7 +483,7 @@ static bool render_msg(oga_video_t* vid, const char* msg)
 
       for (y = 0; y < g->height; y++)
       {
-         for (x = 0; x < g->advance_x; x++)
+         for (x = 0; x < (unsigned int)g->advance_x; x++)
          {
             uint32_t px = (x < g->width) ? *(source++) : 0x00;
             *(dest++)   = (0xCD << 24) | (px << 16) | (px << 8) | px;
@@ -644,7 +644,7 @@ static void oga_set_texture_frame(void *data, const void *frame, bool rgb32,
    uint32_t line[dst_width];
    char *frame_output;
 
-   if (vid->menu_surface->width != width || vid->menu_surface->height != height)
+   if (vid->menu_surface->width != (int)width || vid->menu_surface->height != (int)height)
    {
       oga_destroy_surface(vid->menu_surface);
       vid->menu_surface = oga_create_surface(vid->fd, width, height,
