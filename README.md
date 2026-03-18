@@ -326,6 +326,8 @@ MAME ROMs that run in a vertical aspect like DoDonPachi need to be rotated withi
 
 ## Compilation for RetroPixel pocket v2
 
+./configure --disable-qt --enable-alsa --enable-udev --disable-opengl1 --disable-opengles3 --disable-opengl --disable-opengl_core --disable-vulkan --disable-vulkan_display --enable-egl --enable-opengles --disable-wayland --disable-x11 --enable-zlib --enable-freetype --disable-discord --disable-vg --disable-sdl --disable-sdl2 --disable-ffmpeg --disable-oss --disable-tinyalsa --disable-pulse --enable-kms --disable-mali_fbdev --enable-odroidgo2 --disable-cheevos_rvz --disable-test_drivers --enable-builtinmbedtls --enable-networking --enable-ssl
+
 make HAVE_LIBRETRODB=1 HAVE_NETWORKING=1 HAVE_LAKKA=1 HAVE_ZARCH=1 HAVE_QT=0 HAVE_LANGEXTRA=1 HAVE_LAKKA_PROJECT=0 HAVE_LAKKA_SERVER=0
 
 ## Toolchain
