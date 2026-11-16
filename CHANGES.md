@@ -1,5 +1,189 @@
 # Future
+- D3D11: Software-rendering cores draw straight into lent staging textures, copied to the frame texture on the GPU instead of by the CPU
+- VULKAN: Keep the pipeline cache on disk between runs, one file per GPU, so stock and slang shader pipelines are not recompiled by the driver on every launch, preset load or driver reinit
+- LINUX: Game Mode implemented natively (I/O priority plus a power-profiles-daemon performance hold); Feral libgamemode is no longer loaded and deps/feralgamemode is removed
+- NETPLAY/REPLAY: Record all players' resolved inputs in BSV replays, committing each frame and its checkpoints only after rollback confirmation
+- 3DS: Remove bottom screen fade out animation
+- AI/TRANSLATION: Fix for drawing translation overlay within viewport
+- ANDROID: Fix Enter key not working on keyboards
+- ANDROID: Enable ZSTD compression usage
+- ANDROID: Preserve OpenGL context when app is paused
+- ANDROID: Fix double launch issue when changing games from external launcher
+- ANDROID: Allow launchers to pass content:// URIs to RetroArch
+- ANDROID: Enable network commands
+- ANDROID: Fix dual-motor rumble for USB-connected DS4 and DualSense controllers
+- AUDIO: ASIO driver for Windows platforms
+- AUDIO: SDL3 audio and microphone drivers
+- AUDIO/MICROPHONE: Fix resampling, apple drivers
+- APPLE: Use coreaudio3 resampling
+- APPLE: Add coreaudio3 driver to iOS/TVOS
+- APPLE: Add jollycv, skyemu, gearlynx, amiarcadia, o2em, uzem , applewin, azahar cores to App Store builds
+- APPLE: Add Apple on-device OCR / translation to AI service
+- APPLE: Add avfoundation record driver
+- COMMAND: Fix null pointer exception in COMMAND_GET_STATUS
+- COMMAND: Only allow pause when there is a core running
+- CHEEVOS: Update to rcheevos 12.3
+- CHEEVOS: Download badges on demand only
+- CHEEVOS: Fix for PS2/PSP CHD hashing with RetroAchievements
+- CLOUDSYNC: Google Drive cloud sync driver
+- CLOUDSYNC: NFS cloud sync driver
+- CONFIG: Fix saving main configuration after load configuration
+- DOS: RetroArch for DOS can now start up and handle keyboard correctly
+- CLOUDSYNC: Conflict resolution options
+- CLOUDSYNC: Add --cloudsync command line option to run a sync and exit
 - EMSCRIPTEN: Added dice to core selection dropdown
+- EMSCRIPTEN: Numerous bugfixes
+- FFMPEG: new features for save state, variable strength seek, audio/subtitle stream controls
+- INPUT: Fix illuminance sensor on Linux
+- INPUT: Fix raw mouse position after window state changes
+- INPUT: New analog-to-digital types: both stick, twin-stick (for pressing face buttons with analog stick).
+- INPUT: Fix for setups which have Game Focus and Hotkey Enable on the same key
+- INPUT: Autoconf profile load/save rework: saved profiles have now higher priority, several QoL improvements for saving
+- INPUT: Allow remap of gyro/accelerometer axes in autoconfig
+- INPUT: Fix "Sort Remaps by Gamepad" when launching from CLI
+- INPUT/ANDROID: Default for input block timeout is now 1 instead of 0
+- INPUT/MFI: Controller disconnection fix
+- INPUT/SDL: Fix controller vid/pid detection on Windows
+- INPUT/SDL: Add wiimote sensor capabilities
+- INPUT: Remapped pressure sensitive buttons keep their pressure
+- INPUT/SDL: Enable pressure sensitive buttons for PS3 controllers when SDL_JOYSTICK_HIDAPI_PS3=1
+- INPUT/SDL3: Add SDL3 input driver
+- INPUT/SDL3: Enable pressure sensitive buttons for PS3 controllers when SDL_JOYSTICK_HIDAPI_PS3=1
+- INPUT/UDEV: Fix multi-touch detection
+- INPUT/UDEV: Gyroscope and accelerometer sensor support
+- INPUT/UDEV: Add wiimote sensor capabilities
+- IOS: Fix external keyboards
+- IOS: Add pd777 core
+- LAKKA: RetroFlag specific options for safe shutdown and reset
+- LIBRETRO: ROM memory type added
+- LIBRETRO: Sensor interface clarifications
+- LIBRETRO: RETRO_ENVIRONMENT_SET_SAVE_STATE_DISABLE_UNDO allows cores to disable frontend's save state undo feature to decrease memory usage
+- LIBRETRO: Performance improvements for nbio and archive handling in libretro-common
+- LIBRETRO: Performance improvements for utf encoding in libretro-common
+- LIBRETRO: Performance improvements for crc32 computation
+- LIBRETRO: Enable Linux ARM64 compilation for RetroArch (and several cores)
+- LIBRETRO: Fix CHD handling of MODE1/RAW MODE2/RAW tracks
+- LIBRETRO: API for coordinating executable memory regions 
+- LOCALIZATION: Add Thai language
+- MACOS: Fix OpenGL color on wide gamut displays
+- MACOS: Support for physical optical discs
+- MENU: Do hard reset when pushing RetroPad Start on Restart menu item
+- MENU: Remove "Missing firmware check" option
+- MENU: Show keyboard overlay selection even if it is not loaded
+- MENU: Core info link improvements
+- MENU: Disc control improvements: allow change without eject, insert is auto-delayed to allow core to detect disc change, save file name not changed when manual disc append is used
+- MENU: Fixes for building without menu
+- MENU: Widget default size adjusted
+- MENU: Use RetroPad Y inside shader menu to toggle background opacity or reset shader passes
+- MENU: Fast-forward notification control now acts as frame throttle notification control (including slowmotion and rewind)
+- MENU: Unused RetroRating and performance level indications removed
+- MENU: Evergarden theme for Ozone and RGUI
+- MENU: Saving menu is reorganized
+- MENU: Save state thumbnails are now saved in native resolution for HW rendered cores
+- MENU: Refactor of bind/remap menu
+- MENU: Rename Quick Menu Restart to Reset
+- MENU: Add sublabels for built-in cores and show them in core manager list
+- MENU: Cheat menu rework
+- MENU: Add Load State to Run menu
+- MENU: Fix crash when closing content with runahead and remaps active
+- MENU: Default core downloader URL on ARM64 Linux platforms
+- MENU: New "Display Time" on-screen panel
+- MENU: New hotkey for Toggle Video Filter
+- MENU/EXPLORE: Improve merging metadata of similar items (mostly for NES db)
+- MENU/GLUI: Add Dracula color theme
+- MENU/OZONE: Add dynamic header icon option
+- MENU/OZONE: Fix occasional left mouse click selection error
+- MENU/OZONE: Left sidebar is now optional
+- MENU/XMB: Current menu icon refactor
+- MENU/XMB: Left thumbnail and handheld mode fixes
+- MENU/XMB: Tab change possible by gestures
+- MENU/XMB: Horizontal menu is now optional
+- NETWORK: New network commands SAVE_STATE_SLOT N and GET_CONFIG_PARAM
+- NETWORK: HELP network command lists every command with what it does
+- NETWORK: LIST_CORES, LIST_PLAYLISTS and GET_PLAYLIST network commands, to find content and the core to load it with
+- NETWORK: New network command PRESS, holding RetroPad buttons, running a number of frames and letting them go in one request
+- NETWORK: New network command RUN_UNTIL, running the content until a byte at a system address meets a condition, instead of running a few frames and reading it again
+- NETWORK: New network command GET_INPUT, reporting what a player holds without changing it
+- NETWORK: MCP server offers the menu buttons, the disc hotkeys, the driver restarts, the state slots and the replay controls as five tools, MENU, DISK, REINIT, STATE and REPLAY, rather than nineteen; each is still a command of its own, and SAVE_FILES and LOAD_FILES are commands only
+- NETWORK: New network command WATCH, so RUN_FRAMES, PRESS and RUN_UNTIL carry the bytes an assistant watches along with their own answer instead of needing a read after every step
+- NETWORK: LOAD_CORE says why it failed, and neither it nor LOAD_CONTENT unloads the running core for a path that turns out not to be one
+- NETWORK: SET_INPUT holds several controls at once, joined by "+": "right+a" runs and jumps in one request rather than two
+- NETWORK: LIST_CORES takes a content path, listing only the cores that can load it
+- NETWORK: MCP server: AI assistants can drive RetroArch through the Model Context Protocol, every network command a tool (off by default, see docs/mcp-server.md)
+- NETWORK: MCP server: tools whose work runs over later frames (content, states, replays, shaders, AI service) answer with its outcome once it is through, and the server stays up across content loads
+- NETWORK: MCP server: the replies that are rows of fields are given as structuredContent as well as text, with an outputSchema describing their columns
+- NETWORK: MCP server: the hotkeys that step a selection a program cannot read back are no longer offered as tools, where a command taking the value outright already is; all of them remain network commands
+- NETWORK: Fix SAVE_STATE_SLOT freezing RetroArch with cores such as bsnes
+- NETWORK: Fix the SAVE_FILES and LOAD_FILES failure reply, and LOAD_CORE reporting a core that failed to load as loaded
+- NETWORK: Fix LOAD_CONTENT closing the running content before finding that the core or content path it was given does not exist
+- NETWORK: Built-in TLS 1.2/1.3 client; mbedTLS and BearSSL are no longer bundled (--enable-mbedtls / --enable-bearssl use a system one)
+- NETWORK: Built-in SMB2/3 client with signing, AES-CCM/GCM encryption and Kerberos; libsmb2 is no longer bundled (--enable-libsmb uses a system one)
+- NETWORK: Built-in NFSv3 and NFSv4 (4.0, 4.1, 4.2) client for loading content from nfs:// exports
+- NETWORK: NFS files stay usable across a server restart, a dropped connection or a long pause: the client reconnects and reopens what it needs
+- 3DS/VITA/SWITCH/WIIU: nfs:// content through the built-in NFS client
+- 3DS/VITA/SWITCH: smb:// content through the built-in SMB client
+- WINDOWS/MSVC: the Visual Studio 2005 - 2017 projects build the TLS client, the keychain, SMB and NFS
+- NETWORK: SMB files stay usable across a server restart: the connection is mended and the file opened again where it was
+- NETWORK: NFSv4.2 reads use READ_PLUS: holes in sparse files no longer cross the network
+- 3DS/SWITCH: nfs:// content through the built-in NFS client
+- NETWORK: Optional SMB/NFS read-ahead with background prefetch, for large disc images over a slow link (off by default)
+- NETWORK: Saved passwords are encrypted in retroarch-keychain.cfg; an optional passphrase lets the keychain move to another machine (see docs/network-stack.md)
+- NETWORK: SMB 3.1.1 signs with AES-GMAC where the server offers it, several times faster than AES-CMAC on signed reads
+- NETWORK: HTTPS downloads whose length is set by the server closing the connection now finish instead of hanging
+- OVERLAY: Allow overlays to position the viewport
+- OVERLAY: Hold button function
+- OVERLAY: Allow interaction during next overlay swap
+- OVERLAY: Alternative 2-touch option
+- OVERLAY: Allow touch mouse/lightgun to still work when controller is connected
+- PS2: Improve driver usage
+- PS2: Fix booting from internal HDD
+- RECORD: Fix GPU recording performance
+- RJPEG, RPNG: Optimizations, Add Neon and SSE2 optimized codepaths
+- SCAN: Fix 3DS content scanning skipping all files
+- SCAN: Fix CHD scanning skipping some files
+- SCAN: Improve Saturn content recognition
+- SCAN: Improve Philips CD-i content recognition
+- SCAN: Improve scan performance by caching playlist updates
+- SCAN: Interpret M3U files during scanning
+- SCAN: Merge manual and automatic scan into a more flexible setup
+- SCAN: Improve GDI content recognition
+- SCAN: --scan runs every path and exits with what the scans did; Manual Scan options, --scan-refresh and --scan-refresh-all on the command line; Refresh All Playlists in Manage Playlists
+- SHADER: Display on-screen error when preset load fails
+- SHADER: Add gyroscope / accelerometer uniforms for shaders
+- SHADER: Add aggressive shader caching to slang shader backend
+- VIDEO: Throttle framerate when VSync is enabled but window is not focused
+- VIDEO: New video filters de-dither, pixel-art-AA, ntsc, crop-borders
+- VIDEO/GL: Fix some issues with GLSL shaders when using GLCore driver
+- VIDEO/SDL2: Add shared context
+- VIDEO/D3D9: Various rendering fixes and improvements
+- VIDEO/D3D9: d3d9_hlsl is now the default on Windows XP
+- VIDEO/D3D11/D3D12/VULKAN: Major HDR update. Inverse tone mapping uses RGB maxing instead of luminance, better full-spectrum remapping of SDR space to HDR, Contrast option remove. Performance improved. HDR menu settings exposed to shaders, fast HDR single-pass scanline simulation added.
+- VIDEO/D3D11/D3D12/VULKAN: Multi-mode HDR Expand Gamut selection
+- VIDEO/D3D11/D3D12/VULKAN: scRGB (HDR16) support
+- VIDEO/D3D11/D3D12/VULKAN: Show only supported HDR modes in menu
+- VIDEO/D3D11/D3D12: HDR screenshot support
+- VIDEO/D3D12: Support for scanline sync with d3dkmt
+- VIDEO/GDI: Various fixes and improvements
+- VIDEO/METAL: Add HDR10/scRGB output support
+- VIDEO/METAL: Add support for GPU index
+- VIDEO/SDL2: Add hardware-accelerated support for widgets, XMB, Ozone
+- VIDEO/SDL3: Add SDL3 video driver (software/gl/glcore/vulkan)
+- VIDEO/VULKAN: VK_EXT_full_screen_exclusive is now optional
+- VIDEO/WAYLAND: Fix fullscreen window offset/incorrect sizing
+- VIDEO/WAYLAND: Fix issue with tiny menu in case of fullscreen
+- VITA: Enable cloudsync feature
+- VFS: Add Samba share browse and load content (Windows file shares)
+- WEBOS: Enable mouse use, include developer dir
+- WEBOS: Enable ffmpeg core
+- WEBOS: Add Wayland support
+- WEBOS: Allow user to decide about the screensaver
+- WEBOS: WebOS 1 and 2 compatibility
+- WEBOS: Magic remote improvements
+- WEBOS: Enable ALSA sound driver
+- WIN32: Fix Windows version detection
+- XBOX: Fix menu and achievement sounds
+- XBOX: Update UWP Mesa
+- XBOX: Add zstd support
 
 # 1.22.1
 - ANDROID: OnNewIntent handler to allow launchers start new content without closing first
@@ -251,6 +435,7 @@
 - VITA: Fixes
 - WINDOWS: Win32 socket improvements
 - WII: Fixes
+- WII: Audit pass on Wii/libogc-side code: fix strndup OOB read, calloc overflow check, gx_joypad button truncation, RGUI 21:9 menu_tex overflow + DCFlushRange size, MEM_K0_TO_K1 framebuffer & g_tex leak on driver re-init, device-thread mutex/cond leak, DEFAULT_DIR_REMAP ordering, hoist check_port0_active out of poll loop
 - WIIU: Fixes
 - WEBPLAYER: Update core list for 1.20.0
 

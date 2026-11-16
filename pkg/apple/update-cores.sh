@@ -176,9 +176,12 @@ get_all_cores
 appstore_cores=(
     2048
     a5200
+    amiarcadia
     anarch
+    applewin
     ardens
     atari800
+    azahar
     b2
     #blastem
     bluemsx
@@ -208,7 +211,9 @@ appstore_cores=(
     gearboy
     gearcoleco
     geargrafx
+    gearlynx
     gearsystem
+    geartowns
     genesis_plus_gx
     genesis_plus_gx_wide
     geolith
@@ -216,6 +221,7 @@ appstore_cores=(
     gpsp
     gw
     handy
+    hatarib
     holani
     jollycv
     kronos
@@ -237,12 +243,14 @@ appstore_cores=(
     mrboom
     mu
     mupen64plus_next
+    native32emu
     neocd
     nestopia
     noods
     np2kai
     numero
     nxengine
+    o2em
     opera
     pcsx_rearmed
     pd777
@@ -259,6 +267,7 @@ appstore_cores=(
     quicknes
     race
     reminiscence
+    rustynes
     sameboy
     sameduck
     scummvm
@@ -272,8 +281,10 @@ appstore_cores=(
     stella2023
     tgbdual
     theodore
+    tia
     tic80
     tyrquake
+    uzem
     vba_next
     vbam
     vecx
